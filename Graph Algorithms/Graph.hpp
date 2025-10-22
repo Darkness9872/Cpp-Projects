@@ -16,18 +16,18 @@ protected:
 	bool key_orientation = 0;
 	bool key_file_output = 0;
 	string file_output_address;
-	// для третьей лабы
-	vector<bool> visited;   // Массив для отслеживания посещенных вершин
-	vector<int> tin, fup;   // Массивы времен входа и минимума обратного времени
+	// РґР»СЏ С‚СЂРµС‚СЊРµР№ Р»Р°Р±С‹
+	vector<bool> visited;   // РњР°СЃСЃРёРІ РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ РїРѕСЃРµС‰РµРЅРЅС‹С… РІРµСЂС€РёРЅ
+	vector<int> tin, fup;   // РњР°СЃСЃРёРІС‹ РІСЂРµРјРµРЅ РІС…РѕРґР° Рё РјРёРЅРёРјСѓРјР° РѕР±СЂР°С‚РЅРѕРіРѕ РІСЂРµРјРµРЅРё
 	int timer = 0;
-	vector <int> vertexs;	// для шарниров
-	vector <bridge> bridges; // для мостов и ребер
-	// функции для ввода данных
+	vector <int> vertexs;	// РґР»СЏ С€Р°СЂРЅРёСЂРѕРІ
+	vector <bridge> bridges; // РґР»СЏ РјРѕСЃС‚РѕРІ Рё СЂРµР±РµСЂ
+	// С„СѓРЅРєС†РёРё РґР»СЏ РІРІРѕРґР° РґР°РЅРЅС‹С…
 	void read_data();
 	void read_matrix();
 	void read_edges();
 	void read_adjacency();
-	// вспомогательные функции
+	// РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
 	int begin_vertex_number();
 	int end_vertex_number();
 	char algorithm_input_6lab();
@@ -38,11 +38,11 @@ protected:
 	void dfs(int v, int p = -1);
 	void do_no_orient();
 public:
-	// функция для вывода
+	// С„СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР°
 	void info_output();
-	// основные функции
+	// РѕСЃРЅРѕРІРЅС‹Рµ С„СѓРЅРєС†РёРё
 	Graph(bool key_lab8 = 0);
-	// общие функции тз
+	// РѕР±С‰РёРµ С„СѓРЅРєС†РёРё С‚Р·
 	int weight(int vi, int vj);
 	bool is_edge(int vi, int vj);
 	void adjacency_matrix();
@@ -50,7 +50,7 @@ public:
 	void list_of_edges();
 	void list_of_edges(int v);
 	bool is_directed();
-	// функции лабораторных работ
+	// С„СѓРЅРєС†РёРё Р»Р°Р±РѕСЂР°С‚РѕСЂРЅС‹С… СЂР°Р±РѕС‚
 	void lab_1();
 	void lab_2();
 	void lab_3();
