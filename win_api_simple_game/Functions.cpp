@@ -1,6 +1,6 @@
 #include "Class_main.h"
 
-// функции объекта игрока
+// С„СѓРЅРєС†РёРё РѕР±СЉРµРєС‚Р° РёРіСЂРѕРєР°
 player::player(int x, int y)
 {
 	this->x = x;
@@ -16,7 +16,7 @@ void player::show(HDC hdc, int key)
 	HPEN pen = CreatePen(PS_SOLID, weightLine * 2 + 1, RGB(0, 0, 0));
 	SelectObject(hdc, pen);
 
-	// "человечек"
+	// "С‡РµР»РѕРІРµС‡РµРє"
 	Ellipse(hdc, 0 + x + weightLine, 0 + y + weightLine, 36 + x + weightLine, 36 + y + weightLine);
 	MoveToEx(hdc, 18 + x + weightLine, 0 + y + weightLine, NULL);
 	LineTo(hdc, 46 + x + weightLine, 0 + y + weightLine);
@@ -27,7 +27,7 @@ void player::show(HDC hdc, int key)
 	DeleteObject(pen);
 }
 void player::onKeyDown(WPARAM wParam) {
-	int step = 6; // стандарт - 6
+	int step = 6; // СЃС‚Р°РЅРґР°СЂС‚ - 6
 	switch (wParam) {
 	case 'W':
 		move(0, -step);
@@ -45,16 +45,16 @@ void player::onKeyDown(WPARAM wParam) {
 }
 int player::hit(int xl_2, int yup_2, int xr_2, int ydown_2)
 {
-	// инциализация координат
+	// РёРЅС†РёР°Р»РёР·Р°С†РёСЏ РєРѕРѕСЂРґРёРЅР°С‚
 	int xl_1 = x, xr_1 = x + 46 + weightLine, yup_1 = y, ydown_1 = y + 36;
-	// сравнение координат
+	// СЃСЂР°РІРЅРµРЅРёРµ РєРѕРѕСЂРґРёРЅР°С‚
 	if (!(xr_1 < xl_2 || ydown_1 < yup_2 || xl_1 > xr_2 || yup_1 > ydown_2)) {
 		return 1;
 	}
 	return 0;
 }
 
-// функции объекта "npc"
+// С„СѓРЅРєС†РёРё РѕР±СЉРµРєС‚Р° "npc"
 object::object(int x, int y)
 {
 	this->x = x;
@@ -71,15 +71,15 @@ void object::show(HDC hdc, int key)
 	HPEN pen2 = CreatePen(PS_SOLID, weightLine * 2 + 1, RGB(255, 179, 0));
 	SelectObject(hdc, pen1);
 
-	// закрашенная часть коробки
+	// Р·Р°РєСЂР°С€РµРЅРЅР°СЏ С‡Р°СЃС‚СЊ РєРѕСЂРѕР±РєРё
 	RECT r;
-	r.left = 0 + x + weightLine; //левый верхний угол
+	r.left = 0 + x + weightLine; //Р»РµРІС‹Р№ РІРµСЂС…РЅРёР№ СѓРіРѕР»
 	r.top = 20 + y + weightLine;
-	r.right = 80 + x + weightLine; //правый нижний
+	r.right = 80 + x + weightLine; //РїСЂР°РІС‹Р№ РЅРёР¶РЅРёР№
 	r.bottom = 50 + y + weightLine;
 	FillRect(hdc, &r, (HBRUSH)CreateSolidBrush(RGB(250, 200, 100)));
 
-	// корпус
+	// РєРѕСЂРїСѓСЃ
 	MoveToEx(hdc, 0 + x + weightLine, 0 + y + weightLine, NULL);
 	LineTo(hdc, 0 + x + weightLine, 50 + y + weightLine);
 	LineTo(hdc, 80 + x + weightLine, 50 + y + weightLine);
@@ -89,7 +89,7 @@ void object::show(HDC hdc, int key)
 	LineTo(hdc, 80 + x + weightLine, 0 + y + weightLine);
 	LineTo(hdc, 80 + x + weightLine, 20 + y + weightLine);
 
-	// замок
+	// Р·Р°РјРѕРє
 	SelectObject(hdc, pen2);
 	MoveToEx(hdc, 39 + x + weightLine, 8 + y + weightLine, NULL);
 	LineTo(hdc, 39 + x + weightLine, 11 + y + weightLine);
